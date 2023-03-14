@@ -44,13 +44,12 @@ class _AlarmPageState extends State<AlarmPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            'Alarm',
-            style:
-                TextStyle(fontFamily: 'avenir', fontWeight: FontWeight.w700, color: CustomColors.primaryTextColor, fontSize: 24),
+            'Alarm'
           ),
           Expanded(
             child: FutureBuilder<List<AlarmInfo>>(
-              future: _alarms,
+              // future: _alarms,
+              future: _alarms ?? Future.value([]),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   _currentAlarms = snapshot.data;
@@ -106,7 +105,6 @@ class _AlarmPageState extends State<AlarmPage> {
                             ),
                             Text(
                               'Mon-Fri',
-                              style: TextStyle(color: Colors.white, fontFamily: 'avenir'),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +112,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                 Text(
                                   alarmTime,
                                   style: TextStyle(
-                                      color: Colors.white, fontFamily: 'avenir', fontSize: 24, fontWeight: FontWeight.w700),
+                                      color: Colors.white,  fontSize: 24, fontWeight: FontWeight.w700),
                                 ),
                                 IconButton(
                                     icon: Icon(Icons.delete),
@@ -215,7 +213,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                     );
                                   },
                                 );
-                                // scheduleAlarm();
+                                  // scheduleAlarm();
                               },
                               child: Column(
                                 children: <Widget>[
@@ -226,7 +224,7 @@ class _AlarmPageState extends State<AlarmPage> {
                                   SizedBox(height: 8),
                                   Text(
                                     'Add Alarm',
-                                    style: TextStyle(color: Colors.white, fontFamily: 'avenir'),
+                                    style: TextStyle(color: Colors.white, ),
                                   ),
                                 ],
                               ),
